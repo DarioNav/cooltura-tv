@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -87,6 +87,15 @@
             margin: 1rem auto;
         }
 
+        /* Instruction text */
+        .instruction-text {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.95rem;
+            padding: 1rem 0;
+            margin-bottom: 0.5rem;
+        }
+
         /* Tabs */
         .tabs {
             position: sticky;
@@ -132,16 +141,6 @@
             color: #fff;
         }
 
-        .tab-emoji {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-            filter: grayscale(100%);
-        }
-
-        .tab.active .tab-emoji {
-            filter: none;
-        }
-
         .tab-indicator {
             position: absolute;
             bottom: 0;
@@ -154,6 +153,31 @@
 
         .tab.active .tab-indicator {
             opacity: 1;
+        }
+
+        /* Tab colors */
+        #tab-0 {
+            color: #8B7828;
+        }
+
+        #tab-0.active {
+            color: #D4AF37;
+        }
+
+        #tab-1 {
+            color: #4A7DB8;
+        }
+
+        #tab-1.active {
+            color: #60A5FA;
+        }
+
+        #tab-2 {
+            color: #6B7280;
+        }
+
+        #tab-2.active {
+            color: #FFFFFF;
         }
 
         /* Card */
@@ -497,23 +521,25 @@
         </div>
     </div>
 
+    <!-- Instruction Text -->
+    <div class="container">
+        <p class="instruction-text">Tocá las pestañas para comparar los tres planes: Premium, Pro y Básico.</p>
+    </div>
+
     <!-- Tabs Navigation -->
     <div class="tabs">
         <div class="container">
             <div class="tabs-container">
                 <button class="tab active" onclick="showPlan(0)" id="tab-0">
-                    <span class="tab-emoji">👑</span>
                     <span>Premium</span>
                     <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
                 </button>
                 <button class="tab" onclick="showPlan(1)" id="tab-1">
-                    <span class="tab-emoji">💎</span>
                     <span>Pro</span>
                     <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #60A5FA, transparent);"></div>
                 </button>
                 <button class="tab" onclick="showPlan(2)" id="tab-2">
-                    <span class="tab-emoji">⭐</span>
-                    <span>Básica</span>
+                    <span>Básico</span>
                     <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #FFFFFF, transparent);"></div>
                 </button>
             </div>
@@ -590,10 +616,10 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/?text=¡Hola!%20Me%20interesa%20el%20plan%20*Premium*%20(Sponsor%20TV%20%2B%20Streaming)%20de%20COOLTURA%20TV%20por%20250.000%20ARS.%20Me%20gustaría%20recibir%20más%20información." 
-               target="_blank" 
+            <a href="https://www.instagram.com/cooltura.tv?igsh=MTkwdGt1b2VhN3Bnag=="
+               target="_blank"
                class="cta-button cta-premium">
-                💬 Consultar por WhatsApp
+                📸 Visitá nuestro perfil en Instagram
             </a>
         </div>
 
@@ -703,18 +729,18 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/?text=¡Hola!%20Me%20interesa%20el%20plan%20*Pro*%20(Sponsor%20Televisión)%20de%20COOLTURA%20TV%20por%20150.000%20ARS.%20Me%20gustaría%20recibir%20más%20información." 
-               target="_blank" 
+            <a href="https://www.instagram.com/cooltura.tv?igsh=MTkwdGt1b2VhN3Bnag=="
+               target="_blank"
                class="cta-button cta-pro">
-                💬 Consultar por WhatsApp
+                📸 Visitá nuestro perfil en Instagram
             </a>
         </div>
 
-        <!-- Plan Básica -->
+        <!-- Plan Básico -->
         <div class="plan-card card-basic" id="plan-2">
             <div class="card-header">
                 <div class="card-emoji" style="color: #FFFFFF;">⭐</div>
-                <h2 class="card-title">Básica</h2>
+                <h2 class="card-title">Básico</h2>
                 <p class="card-subtitle">Publicidad Básica</p>
                 <div class="price">
                     <span class="price-amount">$70.000</span>
@@ -744,7 +770,7 @@
                 <div class="feature-icon" style="background: linear-gradient(135deg, #FFFFFF, #E5E7EB);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </div>
@@ -765,10 +791,10 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/?text=¡Hola!%20Me%20interesa%20el%20plan%20*Básica*%20(Publicidad%20Básica)%20de%20COOLTURA%20TV%20por%2070.000%20ARS.%20Me%20gustaría%20recibir%20más%20información." 
-               target="_blank" 
+            <a href="https://www.instagram.com/cooltura.tv?igsh=MTkwdGt1b2VhN3Bnag=="
+               target="_blank"
                class="cta-button cta-basic">
-                💬 Consultar por WhatsApp
+                📸 Visitá nuestro perfil en Instagram
             </a>
         </div>
     </div>
@@ -787,15 +813,12 @@
 
     <script>
         function showPlan(index) {
-            // Hide all plans
             const plans = document.querySelectorAll('.plan-card');
             plans.forEach(plan => plan.classList.remove('active'));
             
-            // Remove active class from all tabs
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => tab.classList.remove('active'));
             
-            // Show selected plan
             document.getElementById('plan-' + index).classList.add('active');
             document.getElementById('tab-' + index).classList.add('active');
         }
