@@ -90,10 +90,19 @@
         /* Instruction text */
         .instruction-text {
             text-align: center;
-            color: #9CA3AF;
-            font-size: 0.95rem;
-            padding: 1rem 0;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1.5rem 0;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .instruction-icon {
+            font-size: 1.5rem;
         }
 
         /* Tabs */
@@ -106,6 +115,7 @@
             border-bottom: 1px solid #1F2937;
             z-index: 50;
             margin-bottom: 2rem;
+            scroll-margin-top: 0;
         }
 
         .tabs-container {
@@ -433,6 +443,34 @@
             background: linear-gradient(135deg, #FFFFFF, #E5E7EB);
         }
 
+        /* Secondary Button */
+        .secondary-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 999px;
+            text-decoration: none;
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .secondary-button:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .secondary-button:active {
+            transform: translateY(0);
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid #1F2937;
@@ -485,6 +523,12 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            .instruction-text {
+                font-size: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -523,24 +567,27 @@
 
     <!-- Instruction Text -->
     <div class="container">
-        <p class="instruction-text">Tocá las pestañas para comparar los tres planes: Premium, Pro y Básico.</p>
+        <p class="instruction-text">
+            <span class="instruction-icon">👇</span>
+            <span>Tocá las pestañas para comparar los tres planes: Premium, Pro y Básico.</span>
+        </p>
     </div>
 
     <!-- Tabs Navigation -->
-    <div class="tabs">
+    <div class="tabs" id="tabs-section">
         <div class="container">
             <div class="tabs-container">
-                <button class="tab active" onclick="showPlan(0)" id="tab-0">
-                    <span>Premium</span>
-                    <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
+                <button class="tab active" onclick="showPlan(2)" id="tab-2">
+                    <span>Básico</span>
+                    <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #FFFFFF, transparent);"></div>
                 </button>
                 <button class="tab" onclick="showPlan(1)" id="tab-1">
                     <span>Pro</span>
                     <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #60A5FA, transparent);"></div>
                 </button>
-                <button class="tab" onclick="showPlan(2)" id="tab-2">
-                    <span>Básico</span>
-                    <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #FFFFFF, transparent);"></div>
+                <button class="tab" onclick="showPlan(0)" id="tab-0">
+                    <span>Premium</span>
+                    <div class="tab-indicator" style="background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
                 </button>
             </div>
         </div>
@@ -548,18 +595,14 @@
 
     <!-- Plans Content -->
     <div class="container">
-        <!-- Plan Premium -->
-        <div class="plan-card card-premium active" id="plan-0" style="position: relative;">
-            <div class="premium-badge">
-                👑 PREMIUM
-            </div>
-
+        <!-- Plan Básico -->
+        <div class="plan-card card-basic active" id="plan-2">
             <div class="card-header">
-                <div class="card-emoji" style="color: #D4AF37;">👑</div>
-                <h2 class="card-title">Premium</h2>
-                <p class="card-subtitle">Sponsor TV + Streaming</p>
+                <div class="card-emoji" style="color: #FFFFFF;">⭐</div>
+                <h2 class="card-title">Básico</h2>
+                <p class="card-subtitle">Publicidad Básica</p>
                 <div class="price">
-                    <span class="price-amount">$250.000</span>
+                    <span class="price-amount">$70.000</span>
                     <span class="price-currency">ARS</span>
                 </div>
                 <p class="price-period">Inversión mensual</p>
@@ -570,57 +613,52 @@
             </div>
 
             <div class="feature-item">
-                <div class="feature-icon" style="background: linear-gradient(135deg, #D4AF37, #C4A137);">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #FFFFFF, #E5E7EB);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                         <polyline points="17 2 12 7 7 2"></polyline>
                     </svg>
                 </div>
                 <div class="feature-content">
-                    <div class="feature-title">COOLTURA TV</div>
-                    <ul class="feature-list">
-                        <li>Spot publicitario en tanda</li>
-                        <li>Flyer y mención al cierre del programa</li>
-                        <li>Columna corta de cada emisión (4 al mes)</li>
-                        <li>Reel mensual en colaboración</li>
-                        <li>Filmación y entrevista con edición profesional</li>
-                    </ul>
+                    <div class="feature-text">Spot publicitario en la tanda de COOLTURA TV</div>
+                    <div class="feature-sub">Canal 5TV – GigaRed, Canal 22</div>
                 </div>
             </div>
 
             <div class="feature-item">
-                <div class="feature-icon" style="background: linear-gradient(135deg, #D4AF37, #C4A137);">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #FFFFFF, #E5E7EB);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </div>
                 <div class="feature-content">
-                    <div class="feature-title">NEW NEA (Canal Che Corrientes)</div>
-                    <ul class="feature-list">
-                        <li>Invitación al programa streaming en vivo</li>
-                        <li>Hablar de tu marca o servicio</li>
-                        <li>Reel en colaboración con NEW NEA</li>
-                    </ul>
+                    <div class="feature-text">3 historias en Instagram @cooltura.tv</div>
+                    <div class="feature-sub">Etiquetando al auspiciante</div>
                 </div>
             </div>
 
             <div class="info-section">
                 <div class="info-box info-ideal">
-                    <div class="info-box-title" style="color: #D4AF37;">
-                        ✨ BENEFICIOS
+                    <div class="info-box-title" style="color: #FFFFFF;">
+                        ⭐ IDEAL PARA
                     </div>
                     <div class="info-box-content">
-                        Presencia integral y multiplataforma, con exposición televisiva y digital, contenido de valor grabado en el propio espacio del cliente y difusión estratégica en dos medios líderes del NEA.
+                        Marcas que buscan presencia visual inmediata y constante en televisión y redes sociales.
                     </div>
                 </div>
             </div>
 
             <a href="https://www.instagram.com/cooltura.tv?igsh=MTkwdGt1b2VhN3Bnag=="
                target="_blank"
-               class="cta-button cta-premium">
+               class="cta-button cta-basic">
                 📸 Visitá nuestro perfil en Instagram
             </a>
+
+            <button onclick="scrollToTabs()" class="secondary-button">
+                🔄 Ver los demás planes
+            </button>
         </div>
 
         <!-- Plan Pro -->
@@ -734,16 +772,24 @@
                class="cta-button cta-pro">
                 📸 Visitá nuestro perfil en Instagram
             </a>
+
+            <button onclick="scrollToTabs()" class="secondary-button">
+                🔄 Ver los demás planes
+            </button>
         </div>
 
-        <!-- Plan Básico -->
-        <div class="plan-card card-basic" id="plan-2">
+        <!-- Plan Premium -->
+        <div class="plan-card card-premium" id="plan-0" style="position: relative;">
+            <div class="premium-badge">
+                👑 PREMIUM
+            </div>
+
             <div class="card-header">
-                <div class="card-emoji" style="color: #FFFFFF;">⭐</div>
-                <h2 class="card-title">Básico</h2>
-                <p class="card-subtitle">Publicidad Básica</p>
+                <div class="card-emoji" style="color: #D4AF37;">👑</div>
+                <h2 class="card-title">Premium</h2>
+                <p class="card-subtitle">Sponsor TV + Streaming</p>
                 <div class="price">
-                    <span class="price-amount">$70.000</span>
+                    <span class="price-amount">$250.000</span>
                     <span class="price-currency">ARS</span>
                 </div>
                 <p class="price-period">Inversión mensual</p>
@@ -754,48 +800,61 @@
             </div>
 
             <div class="feature-item">
-                <div class="feature-icon" style="background: linear-gradient(135deg, #FFFFFF, #E5E7EB);">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #D4AF37, #C4A137);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                         <polyline points="17 2 12 7 7 2"></polyline>
                     </svg>
                 </div>
                 <div class="feature-content">
-                    <div class="feature-text">Spot publicitario en la tanda de COOLTURA TV</div>
-                    <div class="feature-sub">Canal 5TV – GigaRed, Canal 22</div>
+                    <div class="feature-title">COOLTURA TV</div>
+                    <ul class="feature-list">
+                        <li>Spot publicitario en tanda</li>
+                        <li>Flyer y mención al cierre del programa</li>
+                        <li>Columna corta de cada emisión (4 al mes)</li>
+                        <li>Reel mensual en colaboración</li>
+                        <li>Filmación y entrevista en tu local con edición profesional</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="feature-item">
-                <div class="feature-icon" style="background: linear-gradient(135deg, #FFFFFF, #E5E7EB);">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #D4AF37, #C4A137);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                     </svg>
                 </div>
                 <div class="feature-content">
-                    <div class="feature-text">3 historias en Instagram @cooltura.tv</div>
-                    <div class="feature-sub">Etiquetando al auspiciante</div>
+                    <div class="feature-title">NEW NEA (Canal Che Corrientes)</div>
+                    <ul class="feature-list">
+                        <li>Invitación al programa streaming en vivo</li>
+                        <li>Hablar de tu marca o servicio</li>
+                        <li>Reel en colaboración con NEW NEA</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="info-section">
                 <div class="info-box info-ideal">
-                    <div class="info-box-title" style="color: #FFFFFF;">
-                        ⭐ IDEAL PARA
+                    <div class="info-box-title" style="color: #D4AF37;">
+                        ✨ BENEFICIOS
                     </div>
                     <div class="info-box-content">
-                        Marcas que buscan presencia visual inmediata y constante en televisión y redes sociales.
+                        Presencia integral y multiplataforma, con exposición televisiva y digital, contenido de valor grabado en el propio espacio del cliente y difusión estratégica en dos medios líderes del NEA.
                     </div>
                 </div>
             </div>
 
             <a href="https://www.instagram.com/cooltura.tv?igsh=MTkwdGt1b2VhN3Bnag=="
                target="_blank"
-               class="cta-button cta-basic">
+               class="cta-button cta-premium">
                 📸 Visitá nuestro perfil en Instagram
             </a>
+
+            <button onclick="scrollToTabs()" class="secondary-button">
+                🔄 Ver los demás planes
+            </button>
         </div>
     </div>
 
@@ -821,6 +880,11 @@
             
             document.getElementById('plan-' + index).classList.add('active');
             document.getElementById('tab-' + index).classList.add('active');
+        }
+
+        function scrollToTabs() {
+            const tabsSection = document.getElementById('tabs-section');
+            tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 </body>
